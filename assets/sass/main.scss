@@ -1999,7 +1999,8 @@
 		margin: 0;
 	}
 
-	#partners .partner-suppliers p {
+	#partners .partner-suppliers p,
+	#partners .partner-artisans p {
 		align-items: flex-start;
 		display: flex;
 		flex-wrap: wrap;
@@ -2087,7 +2088,8 @@
 		vertical-align: middle;
 	}
 
-	#partners .partner-suppliers p {
+	#partners .partner-suppliers p,
+	#partners .partner-artisans p {
 		align-items: flex-start;
 		display: flex;
 		flex-wrap: wrap;
@@ -2095,7 +2097,8 @@
 		justify-content: center;
 	}
 
-	#partners .partner-suppliers p a {
+	#partners .partner-suppliers p a,
+	#partners .partner-artisans p a {
 		flex: 1 1 8em;
 		margin: 0;
 		max-width: none;

@@ -194,4 +194,21 @@
 				});
 			});
 
+			$('[data-legal-open]').on('click', function(event) {
+				event.preventDefault();
+				$('#legal-modal').removeAttr('hidden');
+				$('body').addClass('is-legal-modal-visible');
+				$('#legal-modal .legal-modal-close').trigger('focus');
+			});
+
+			$('[data-legal-close]').on('click', function() {
+				$('#legal-modal').attr('hidden', true);
+				$('body').removeClass('is-legal-modal-visible');
+			});
+
+			$(document).on('keydown', function(event) {
+				if (event.key === 'Escape' && !$('#legal-modal').is('[hidden]'))
+					$('[data-legal-close]').first().trigger('click');
+			});
+
 	})(jQuery);

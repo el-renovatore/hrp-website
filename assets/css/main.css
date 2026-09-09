@@ -3448,12 +3448,13 @@ input, select, textarea {
 				position: absolute;
 			}
 
-				.before-after-image img {
-					display: block;
-					height: 100%;
-					object-fit: cover;
-					width: 100%;
-				}
+			.before-after-image img {
+				background: rgb(47, 72, 88);
+				display: block;
+				height: 100%;
+				object-fit: contain;
+				width: 100%;
+			}
 
 				.before-after-image span {
 					background: rgba(0, 0, 0, 0.55);
@@ -4270,9 +4271,9 @@ input, select, textarea {
 		background: #ffffff;
 		border-radius: 4px;
 		display: block;
-		height: 4.5em;
+		height: 6em;
 		margin: 0 auto 0.75em;
-		max-width: 11em;
+		max-width: 12em;
 		object-fit: contain;
 		padding: 0.5em;
 		width: 100%;
@@ -4321,7 +4322,8 @@ input, select, textarea {
 		margin: 0;
 	}
 
-	#partners .partner-suppliers p {
+	#partners .partner-suppliers p,
+	#partners .partner-artisans p {
 		align-items: flex-start;
 		display: flex;
 		flex-wrap: wrap;
@@ -4409,27 +4411,200 @@ input, select, textarea {
 		vertical-align: middle;
 	}
 
-	#partners .partner-suppliers p {
+	#partners .partner-suppliers p,
+	#partners .partner-artisans p {
 		align-items: flex-start;
 		display: flex;
 		flex-wrap: wrap;
-		gap: 1em;
+		gap: 2em;
 		justify-content: center;
 	}
 
-	#partners .partner-suppliers p a {
-		flex: 1 1 8em;
+	#partners .partner-suppliers p a,
+	#partners .partner-artisans p a {
+		flex: 0 1 11em;
 		margin: 0;
 		max-width: none;
 		text-align: center;
 	}
 
 	@media screen and (max-width: 736px) {
+		#footer {
+			flex-direction: column;
+			gap: 1em;
+		}
+
+		#footer .icons {
+			position: static;
+			transform: none;
+		}
+
+		#footer .legal-links {
+			margin-left: 0;
+			margin-right: 0;
+			padding-left: 0;
+			text-align: center;
+		}
+
 		#partners .partner-grid {
 			gap: 1em;
 		}
 
 		#partners .partner-card {
 			padding: 2em 1em;
+		}
+	}
+
+	.legal-links {
+		font-size: 0.75em;
+		list-style: none;
+		margin: 0;
+		opacity: 0.8;
+		padding: 0;
+		text-align: right;
+	}
+
+	#footer {
+		align-items: center;
+		display: flex;
+		justify-content: space-between;
+	}
+
+	#footer .icons,
+	#footer .legal-links {
+		margin: 0;
+	}
+
+	#footer .icons {
+		left: 50%;
+		position: absolute;
+		transform: translateX(-50%);
+	}
+
+	#footer .legal-links {
+		margin-left: auto;
+		margin-right: 1.5em;
+		padding-left: 2em;
+	}
+
+	.phone-icon {
+		display: inline-block;
+		transform: rotate(180deg);
+	}
+
+	.legal-links a {
+		border-bottom: 0;
+		transition: opacity 0.2s ease;
+	}
+
+	.legal-links a:hover {
+		opacity: 0.65;
+	}
+
+	.legal-modal[hidden] {
+		display: none;
+	}
+
+	.legal-modal {
+		align-items: center;
+		display: flex;
+		inset: 0;
+		justify-content: center;
+		overflow-y: auto;
+		padding: 1.5em;
+		position: fixed;
+		z-index: 10000;
+	}
+
+	.legal-modal-backdrop {
+		background: rgba(0, 0, 0, 0.7);
+		inset: 0;
+		position: absolute;
+	}
+
+	.legal-modal-content {
+		background: #ffffff;
+		border-top: 0.35em solid #0d744f;
+		border-radius: 4px;
+		box-shadow: 0 1em 3em rgba(0, 0, 0, 0.35);
+		color: #1d242a;
+		max-height: calc(100vh - 3em);
+		max-width: 34em;
+		overflow-y: auto;
+		padding: 3em;
+		position: relative;
+		width: 100%;
+		z-index: 1;
+	}
+
+	.legal-modal-content h2 {
+		color: #1d242a;
+		font-size: 1.35em;
+		margin-top: 0;
+		padding-right: 1.5em;
+	}
+
+	.legal-modal-content h3 {
+		border-bottom: 1px solid rgba(13, 116, 79, 0.25);
+		color: #0d744f;
+		font-size: 0.95em;
+		letter-spacing: 0.04em;
+		margin: 1.75em 0 0.75em;
+		padding-bottom: 0.35em;
+	}
+
+	.legal-modal-content p,
+	.legal-modal-content address {
+		font-size: 0.88em;
+	}
+
+	.legal-section + .legal-section {
+		border-top: 1px solid rgba(29, 36, 42, 0.1);
+		margin-top: 1.5em;
+		padding-top: 0.25em;
+	}
+
+	.legal-details {
+		display: grid;
+		font-size: 0.88em;
+		gap: 0.55em 1em;
+		grid-template-columns: minmax(9em, 0.8fr) 1.2fr;
+		margin: 0;
+	}
+
+	.legal-details dt {
+		color: #5d6368;
+		font-weight: 700;
+	}
+
+	.legal-details dd {
+		margin: 0;
+	}
+
+	.legal-modal-content address {
+		font-style: normal;
+		line-height: 1.8;
+	}
+
+	.legal-modal-content a {
+		color: #0d744f;
+	}
+
+	.legal-modal-close {
+		background: transparent;
+		border: 0;
+		color: #1d242a;
+		cursor: pointer;
+		font-size: 2em;
+		line-height: 1;
+		padding: 0.1em 0.25em;
+		position: absolute;
+		right: 0.5em;
+		top: 0.5em;
+	}
+
+	@media screen and (max-width: 736px) {
+		.legal-modal-content {
+			padding: 2.5em 1.5em 1.5em;
 		}
 	}
